@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f1f5f9;
+}
+.report-serif {
+    font-family: 'Merriweather', Georgia, serif;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.a4-sheet {
+    width: 100%;
+    max-width: 210mm;
+    min-height: 297mm;
+    background: #ffffff;
+    margin: 0 auto 24px auto;
+    padding: 15mm 18mm;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.06);
+    border: 1px solid #cbd5e1;
+    box-sizing: border-box;
+    position: relative;
+}
+
+@page {
+    size: A4 portrait;
+    margin: 0mm;
+}
+
+@media print {
+    html,
+    body,
+    #root,
+    #app-root-wrapper,
+    #main-workspace,
+    #preview-container,
+    #it116-return-wrapper {
+        width: 210mm !important;
+        max-width: 210mm !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        position: static !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Strictly hide all UI editing elements, navigation, sidebars, and inline table action controls */
+    #top-navbar,
+    #editor-sidebar,
+    .no-print,
+    button.no-print,
+    th.no-print,
+    td.no-print {
+        display: none !important;
+    }
+
+    /* Respect toggled-off sections */
+    #doc-audit-block[style*="display: none"],
+    #doc-tax-page[style*="display: none"],
+    #it116-return-wrapper[style*="display: none"] {
+        display: none !important;
+    }
+
+    /* Remove focus styles and placeholders from inline editable fields when printing */
+    [contenteditable="true"],
+    input,
+    textarea,
+    select {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: transparent !important;
+    }
+
+    /* Strict A4 page breaks for every report sheet */
+    .a4-sheet {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 210mm !important;
+        max-width: 210mm !important;
+        min-height: 296.5mm !important;
+        height: 296.5mm !important;
+        max-height: 297mm !important;
+        overflow: hidden !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 13mm 16mm !important;
+        box-sizing: border-box !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    .a4-sheet:last-of-type {
+        page-break-after: auto !important;
+        break-after: auto !important;
+    }
+}
+
+.it116-page {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
+    color: #000000;
+    line-height: 1.35;
+}
+.it116-line-input {
+    border: none;
+    border-bottom: 1px dotted #000;
+    outline: none;
+    background: transparent;
+    flex-grow: 1;
+    margin-left: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0 3px;
+    height: 19px;
+}
+.it116-line-input:focus {
+    border-bottom: 1px solid #000;
+    background-color: #f8fafc;
+}
+.it116-cell-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.it116-cell-input:focus {
+    background-color: #eff6ff;
+}
+.it116-tin-container {
+    display: inline-flex;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+.it116-tin-box {
+    width: 21px;
+    height: 25px;
+    border: 1px solid #000;
+    margin-right: -1px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    outline: none;
+    padding: 0;
+    background: transparent;
+}
+.it116-tin-box:focus {
+    background-color: #eff6ff;
+    z-index: 1;
+}
+.it116-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+}
+.it116-table th, .it116-table td {
+    border: 1px solid #000;
+    padding: 3.5px 6px;
+    font-size: 12px;
+    vertical-align: top;
+}
+.it116-office-box {
+    border: 1.5px solid #000;
+    width: 235px;
+}
+.it116-office-box .row {
+    border-bottom: 1px solid #000;
+    display: flex;
+}
+.it116-office-box .row:last-child {
+    border-bottom: none;
+}
+.it116-office-box .col-1 {
+    border-right: 1px solid #000;
+    padding: 3px 5px;
+    width: 60%;
+    font-size: 11px;
+}
+.it116-office-box .col-2 {
+    width: 40%;
+    padding: 2px 4px;
+}
+.it116-main-box {
+    border: 1.5px solid #000;
+    padding: 14px 16px;
+}
+
+.it11cola-page {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+.it11cola-serif {
+    font-family: "Times New Roman", Times, serif;
+}
+.it11cola-input {
+    flex: 1;
+    border: none;
+    border-bottom: 1px dotted #94a3b8;
+    background: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    outline: none;
+    padding: 2px 5px;
+}
+.it11cola-input:focus {
+    border-bottom: 1px solid #000;
+    background-color: #f8fafc;
+}
+.it11cola-reg-table {
+    border-collapse: collapse;
+    width: 65%;
+    font-size: 12px;
+}
+.it11cola-reg-table td {
+    border: 1px solid #000;
+    padding: 9px 10px;
+}
+.it11cola-reg-table td:first-child {
+    width: 58%;
+    font-weight: bold;
+}
+.it11cola-reg-table input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
+}

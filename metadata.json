@@ -1,0 +1,6 @@
+{
+  "name": "IFRS Annual Financial Report Builder - Partnership Firm",
+  "description": "IFRS/IAS & Bangladesh FRC compliant Partnership Firm Annual Financial Report Generator with IAS 12 (S.R.O. 324/2026) Taxation Schedule and Official NBR Form IT-116 (2023) & IT-11 Cola Return.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
